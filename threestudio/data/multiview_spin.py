@@ -388,7 +388,7 @@ class MultiviewDataset(Dataset):
         return batch
 
 
-@register("multiview-camera-datamodule")
+@register("multiview_spin-camera-datamodule")
 class MultiviewDataModule(pl.LightningDataModule):
     cfg: MultiviewsDataModuleConfig
 
