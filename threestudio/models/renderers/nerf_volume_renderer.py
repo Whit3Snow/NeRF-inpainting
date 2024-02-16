@@ -133,7 +133,6 @@ class NeRFVolumeRenderer(VolumeRenderer):
             .reshape(-1, 3)
         )
         n_rays = rays_o_flatten.shape[0]
-        breakpoint()
         if self.cfg.estimator == "occgrid":
             if not self.cfg.grid_prune:
                 with torch.no_grad():

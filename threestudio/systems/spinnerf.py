@@ -76,7 +76,6 @@ class Instructnerf2nerf(BaseLift3DSystem):
         #         )
         #         self.edit_frames[batch_index] = result["edit_images"].detach().cpu()
 
-        breakpoint()
         loss = 0.0
         guidance_out = {
             "loss_l1": torch.nn.functional.l1_loss(out["comp_rgb"], gt_rgb),
