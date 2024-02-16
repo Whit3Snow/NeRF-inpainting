@@ -396,26 +396,6 @@ python launch.py --config configs/magic3d-refine-sd.yaml --train --gpu 0 system.
 - Try increasing/decreasing `system.loss.lambda_orient` if you object is foggy/over-smoothed.
 - Try replacing the background with random colors with a probability 0.5 by setting `system.background.random_aug=true` if you find the model incorrectly treats the background as part of the object.
 
-### Score Jacobian Chaining [![arXiv](https://img.shields.io/badge/arXiv-2212.00774-b31b1b.svg?style=flat-square)](https://arxiv.org/abs/2212.00774)
-
-**Results obtained by threestudio (Stable Diffusion)**
-
-https://user-images.githubusercontent.com/19284678/236694871-87a247c1-2d3d-4cbf-89df-450bfeac3aca.mp4
-
-Notable differences from the paper: N/A.
-
-**Example running commands**
-
-```sh
-# train with sjc guidance in latent space
-python launch.py --config configs/sjc.yaml --train --gpu 0 system.prompt_processor.prompt="A high quality photo of a delicious burger"
-# train with sjc guidance in latent space, trump figure
-python launch.py --config configs/sjc.yaml --train --gpu 0 system.prompt_processor.prompt="Trump figure" trainer.max_steps=30000 system.loss.lambda_emptiness="[15000,10000.0,200000.0,15001]" system.optimizer.params.background.lr=0.05 seed=42
-```
-
-**Tips**
-
-- SJC uses subpixel rendering which decodes a `128x128` latent feature map for better visualization quality. You can turn off this feature by `system.subpixel_rendering=false` to save VRAM in validation/testing.
 
 ### Latent-NeRF [![arXiv](https://img.shields.io/badge/arXiv-2211.07600-b31b1b.svg?style=flat-square)](https://arxiv.org/abs/2211.07600)
 
